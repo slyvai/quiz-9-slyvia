@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from "react";
-import { Card, Row, Col, Button, Select } from "antd";
+import { Card, Row, Col, Button, Select, Typography } from "antd";
 
 const { Option } = Select;
+const { Title, Paragraph } = Typography;
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -22,8 +23,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 mx-4">
-      <h1 className="font-bold text-4xl text-center mb-10 text-gray-600">🛍️ Product List</h1>
-      <p className="text-gray-600">Filter :</p>
+      <Title level={2} className="text-center mb-8">Products</Title>
+      <Paragraph className="text-center mb-12 text-gray-600">
+        Browse our collection of products sorted by your preference.
+      </Paragraph>
+
+      <Paragraph className="text-gray-600">Filter :</Paragraph>
 
       <div className="mb-8">
         <Select
@@ -67,7 +72,7 @@ export default function Home() {
                   {product.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-indigo-600 font-bold">
+                  <span className="text-gray-600 font-bold">
                     ${product.price}
                   </span>
                   <Button type="primary">Buy Now</Button>
